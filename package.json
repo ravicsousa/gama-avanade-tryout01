@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gamaacademy/gama-avanade-tryout01-resolution.git"
+    "url": "git+https://github.com/gamaacademy/gama-avanade-tryout01.git"
   },
   "keywords": [
     "node",
@@ -34,7 +34,7 @@
   "author": "Saulo Arruda",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/gamaacademy/gama-avanade-tryout01-resolution/issues"
+    "url": "https://github.com/gamaacademy/gama-avanade-tryout01/issues"
   },
-  "homepage": "https://github.com/gamaacademy/gama-avanade-tryout01-resolution#readme"
+  "homepage": "https://github.com/gamaacademy/gama-avanade-tryout01#readme"
 }
