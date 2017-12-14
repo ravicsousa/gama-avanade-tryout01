@@ -1,8 +1,8 @@
 var assert = require('assert');
-var resemble = require('resemblejs');
+var pixelmatch = require('pixelmatch');
+var PNG = require('pngjs').PNG;
 var fs = require('fs');
 var path = require('path');
-var process = require('process');
 var server = require('../server.js');
 server.startServer(8090);
 var url = 'http://localhost:8090';
@@ -16,11 +16,11 @@ describe('Tryout#1 - ', function() {
 	describe('Código HTML&CSS: ', function() {
 
 		it('O layout desktop deve ser igual ao gabarito', function () {
-			layoutTestRunner("assertion-desktop.png", 800, 600)
+			layoutTestRunner("assertion-desktop", 800, 600)
 	    });
 
 	    it('O layout mobile deve ser igual ao gabarito', function () {
-	        layoutTestRunner("assertion-mobile.png", 376, 667)
+	        layoutTestRunner("assertion-mobile", 376, 667)
 	    });
 
 	});
@@ -48,7 +48,6 @@ describe('Tryout#1 - ', function() {
 	})
 });
 
-
 function layoutTestRunner(assertion_file, width, height) {
 	browser.setViewportSize({
 	    width: width,
@@ -56,13 +55,13 @@ function layoutTestRunner(assertion_file, width, height) {
 	});
 	browser.url(url);
 	browser.waitForVisible('#main');
-	var screenshotName = './screenshot-' + assertion_file
+	var screenshotName = './screenshot-' + assertion_file + ".png"
 	browser.saveScreenshot(screenshotName);
 	var os = process.platform;
-	var diff = resemble(fs.readFileSync(screenshotName)).compareTo(fs.readFileSync('./test/' + os + "-" + assertion_file)).onComplete(function(data) {
-		if (data.rawMisMatchPercentage > 0) {
-	        fs.writeFileSync('./diff-' + path.basename(assertion_file) + '.png', data.getBuffer());
-		}
-	    assert.equal(data.rawMisMatchPercentage, 0);
-	});	
+	var img1 = PNG.sync.read(fs.readFileSync(screenshotName));
+	var img2 = PNG.sync.read(fs.readFileSync('./test/' + os + "-" + assertion_file + '.png'));
+    var diff = new PNG({width: img1.width, height: img1.height});
+    var pixelsDiff = pixelmatch(img1.data, img2.data, diff.data, img1.width, img1.height, {threshold: 0.1});
+    diff.pack().pipe(fs.createWriteStream('diff' + assertion_file + '.png'));
+	assert.equal(pixelsDiff, 0);
 }
