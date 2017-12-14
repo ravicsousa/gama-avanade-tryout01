@@ -8,41 +8,11 @@ Agora chega de conversa e vamos codar!
 
 Mas antes, você precisa instalar os seguintes componentes na sua máquina:
 
-
-## Instalando dependências no MacOS
-
-A maneira mais fácil de instalar as dependências no Mac OS é usando o Homebrew. Para instalar basta executar os comandos abaixo no app Terminal:
-
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-Depois do Homebrew instalado vamos instalar o pacote do Node.JS
-
-```
-brew install nodejs
-```
-
-Pra finalizar é só instalar as dependências do framework Canvas
-
-```
-brew install pkg-config cairo libpng jpeg giflib
-```
-
-Agora é fazer um clone do repositório do git e executar o comando abaixo para instalar todas as dependências do projeto.
-
-```
-npm install
-```
-
-Pronto! Agora é só começar a codar!
-
-
 ## Configurando ambiente no Windows, Mac e Ubuntu
 
 Instale o pacote do Node.js versão 8 pelo link a seguir e siga a instalação normalmente: [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
-Usando o command prompt como usuário normal faça o clone do projeto no github e execute o comando abaixo para instalar as dependências do projeto:
+Usando o command prompt (ou terminal) faça o clone do projeto no github e execute o comando abaixo para instalar as dependências do projeto:
 
 ```
 npm install
