@@ -1,18 +1,110 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Avanade Angular Academy by Gama - Simulado #1</title>
-	<meta charset="utf-8">
+    <title>Avanade Angular Academy by Gama - Simulado #1</title>
+    <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ga.css">
+
 </head>
+
 <body>
-<main role="main" id="main"></main>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <main role="main" id="main">
+        <!-- Cabecalho com backgroud -->
+        <div class="jumbotron jumbotron-fluid" id="background">
+            <div class="container-fluid">
+                <div class="text-center">
+                    <p class="h1">
+                        <strong>DÊ PROPÓSITO PARA SEU CÓDIGO</strong>
+                    </p>
+                    <p>Cansado de desenvolver projetos sem sentido? Participe do Avanade Angular Academy</p>
+                    <button type="button" class="btn btn-success" id="btn-apply-form" data-toggle="modal" data-target="#apply-modal">Inscreva-se</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Corpo do site com conteudo -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <strong>Inscrições</strong>
+                        <p calss="data">02/dez a 04/jan</strong>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam, leo sit amet finibus aliquam, urna lectus consequat risus, eget tempus diam leo in tortor</p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <strong>Teste técnico</strong>
+                        <p calss="data">05 e 06/jan</p>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam, leo sit amet finibus aliquam, urna lectus consequat risus, eget tempus diam leo in tortor</p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <strong>Seleção e Contratação</strong>
+                        <p class="data">07/jan a 14/jan</p>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam, leo sit amet finibus aliquam, urna lectus consequat risus, eget tempus diam leo in tortor</p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="text-center">
+                        <strong>Treinamento</strong>
+                        <p class="data">15/jan a 26/jan</p>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam, leo sit amet finibus aliquam, urna lectus consequat risus, eget tempus diam leo in tortor</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para a realização do login -->
+    <div class="modal fade" id="apply-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Formulário de inscrição</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario  -->
+                    <form method="post" id="myForm" class="form">
+                        <div class="form-group">
+                            <label for="name">Digite seu Nome</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Nome">
+                            <span class="error d-none" id="feedback-name">Não pode estar vazio</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Digite seu Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                            <span class="error d-none" id="feedback-email-empty">Não pode estar vazio</span>
+                            <span class="error d-none" id="feedback-email-invalid">Não é válido</span>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="btn-apply">Enviar</button>
+                    </div>
+                    <div class="alert alert-danger d-none" id="apply-error">
+                        <strong>Falha!</strong> Formulário não enviado.
+                    </div>
+                    <div class="alert alert-success d-none" id="apply-success">
+                        <strong>Sucesso!</strong> Formulário enviado com sucesso.
+                    </div>
+                    <div class="alert alert-warning d-none" id="apply-invalid">
+                        <strong>Invalído!</strong> Formulário não está valido.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="js/demo.js"></script>
 </body>
+
 </html>
